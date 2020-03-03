@@ -1,8 +1,11 @@
 <div class="container">
-	<div >
+	<div *ngIf="messageHistory.length <= 0">
 		No messages yet 😢
 	</div>
-	<div>
-		TODO show messages when they arrive
+	<div *ngIf="messageHistory.length > 0">
+		<p *ngFor="let message of messageHistory">
+			{{ message }}
+		</p>
 	</div>
+	<!-- {{ messageHistory | json }} -->
 </div>

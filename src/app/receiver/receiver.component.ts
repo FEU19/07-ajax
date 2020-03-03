@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../message.service';
 
 @Component({
 	selector: 'app-receiver',
@@ -6,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./receiver.component.css']
 })
 export class ReceiverComponent implements OnInit {
+	messageHistory: string[] = [];
+	firstMessage: boolean = true;
 
-	constructor() { }
+	constructor(private messageService: MessageService) { }
 
-	ngOnInit(): void { }
+	ngOnInit(): void {
+		this.messageService.observableSource.subscribe(message => {
+			if( this.firstMessage ) {
+				// do not push
+				this.firstMessage = false;
+			} else {
+				this.messageHistory.push(message);
+			}
+		})
+	}
 
 }
+
+
+
+
+
+
+
+//

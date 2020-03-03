@@ -8,13 +8,13 @@ import { MessageService } from '../message.service';
 })
 export class SenderComponent implements OnInit {
 	message: string = 'Racoon';
-	
+
 	constructor(private messageService: MessageService) { }
 
 	ngOnInit(): void { }
 
 	sendMessage() {
-		this.messageService.send('HELLO');
+		this.messageService.send(this.message);
 	}
 
 	handleKeyUp(event) {
