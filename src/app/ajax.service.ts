@@ -13,7 +13,9 @@ export class AjaxService {
 
 	getData(): Observable<SunriseSunset> {
 		const url = 'https://api.sunrise-sunset.org/json';
-		return this.http.get<SunriseSunset>(url);
+		let params = '?lat=57.699094&lng=11.9576425'
+		// 57.699094,11.9576425
+		return this.http.get<SunriseSunset>(url + params);
 	}
 }
 

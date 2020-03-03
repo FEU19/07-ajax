@@ -1,0 +1,20 @@
+<h1>API demo</h1>
+<p>
+	This example demonstrates how to send GET requests to the sunrise-sunset API. The API is free to use, but requires that we link back to it: <a href="https://sunrise-sunset.org/api">https://sunrise-sunset.org/api</a>
+</p>
+
+<p>
+	<button (click)="getSunriseSunsetData()">Get data!</button>
+</p>
+<p *ngIf="sunInformation">
+	The sun rose at {{ sunInformation.results.sunrise }} today and will set at {{ sunInformation.results.sunset }}.
+</p>
+<p *ngIf="!sunInformation">
+	Please click the button to send a GET request.
+</p>
+
+
+
+
+
+.
