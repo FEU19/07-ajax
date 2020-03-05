@@ -12,7 +12,7 @@ export class AjaxService {
 	constructor(private http: HttpClient) { }
 
 	getData(): Observable<SunriseSunset> {
-		const url = 'https://api.sunrise-sunset.org/jsonnn';
+		const url = 'https://api.sunrise-sunset.org/json';
 		let params = '?lat=57.699094&lng=11.9576425'
 		// 57.699094,11.9576425
 		return this.http.get<SunriseSunset>(url + params);
